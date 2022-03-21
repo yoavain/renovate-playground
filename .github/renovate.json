@@ -29,6 +29,7 @@
     ],
     "prConcurrentLimit": 5,
     "ignoreNpmrcFile": true,
+    "timezone": "Asia/Jerusalem",
     "lockFileMaintenance": {
         "enabled": true,
         "schedule": "after 10pm on saturday"
