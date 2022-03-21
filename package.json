@@ -1,20 +1,77 @@
 {
-  "name": "renovate-playground",
-  "version": "1.0.0",
-  "description": "Testing renovate configuration",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yoavain/renovate-playground.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/yoavain/renovate-playground/issues"
-  },
-  "homepage": "https://github.com/yoavain/renovate-playground#readme"
+    "name": "renovate-playground",
+    "version": "1.0.0",
+    "description": "Testing renovate configuration",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "prepare": "git config --get core.hookspath || husky install",
+        "prebuild": "npm run test",
+        "build": "npm run build:no-test",
+        "build:no-test": "npm run tsc && npm run package",
+        "test": "npm run eslint && npm run type-check && npm run jest",
+        "eslint": "eslint src/ test/",
+        "eslint:fix": "npm run eslint -- --fix",
+        "type-check": "tsc --build tsconfig.json",
+        "jest": "cross-env FORCE_COLOR=0 jest",
+        "prettier": "prettier --write *.json",
+        "pretsc": "rimraf dist",
+        "tsc": "tsc --build tsconfig.build.json",
+        "start": "ts-node src/index.ts",
+        "package": "npm pack",
+        "pre-commit": "lint-staged"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yoavain/renovate-playground.git"
+    },
+    "keywords": [
+        "renovate",
+        "automation"
+    ],
+    "author": "yoavain",
+    "license": "MIT",
+    "engines": {
+        "node": ">=12 <17",
+        "npm": "<9"
+    },
+    "files": [
+        "dist/**"
+    ],
+    "bugs": {
+        "url": "https://github.com/yoavain/renovate-playground/issues"
+    },
+    "homepage": "https://github.com/yoavain/renovate-playground#readme",
+    "devDependencies": {
+        "@tsconfig/node12": "1.0.0",
+        "@types/cross-spawn": "6.0.0",
+        "@types/jest": "27.0.0",
+        "@types/node": "17.0.0",
+        "@typescript-eslint/eslint-plugin": "5.0.0",
+        "@typescript-eslint/parser": "5.0.0",
+        "cross-env": "7.0.0",
+        "eslint": "8.0.0",
+        "eslint-plugin-import": "2.25.0",
+        "eslint-plugin-jest": "26.0.0",
+        "eslint-plugin-node": "11.0.0",
+        "husky": "7.0.0",
+        "jest": "27.0.0",
+        "lint-staged": "12.0.0",
+        "prettier": "2.0.0",
+        "rimraf": "3.0.0",
+        "ts-jest": "27.0.0",
+        "ts-node": "10.0.0",
+        "typescript": "4.5.2"
+    },
+    "dependencies": {
+        "dotenv": "14.3.2"
+    },
+    "lint-staged": {
+        "*.(ts|js)": [
+            "eslint --fix"
+        ],
+        "*.json": [
+            "prettier --write"
+        ]
+    }
 }
