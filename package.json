@@ -43,7 +43,7 @@
     },
     "homepage": "https://github.com/yoavain/renovate-playground#readme",
     "devDependencies": {
-        "@tsconfig/node14": "1.0.2",
+        "@tsconfig/node14": "1.0.3",
         "@types/cross-spawn": "6.0.2",
         "@types/jest": "27.5.2",
         "@types/node": "17.0.31",
