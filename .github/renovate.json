@@ -28,7 +28,6 @@
         }
     ],
     "prConcurrentLimit": 5,
-    "ignoreNpmrcFile": true,
     "timezone": "Asia/Jerusalem",
     "lockFileMaintenance": {
         "enabled": true,
