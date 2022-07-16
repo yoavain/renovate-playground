@@ -64,7 +64,10 @@
         "typescript": "4.7.4"
     },
     "dependencies": {
-        "dotenv": "16.0.1"
+        "dotenv": "16.0.1",
+        "react": "18.0.0",
+        "react-dom": "18.0.0",
+        "react-fittext": "1.0.0"
     },
     "lint-staged": {
         "*.(ts|js)": [
