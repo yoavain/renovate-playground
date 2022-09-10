@@ -5,7 +5,8 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
-        "prepare": "git config --get core.hookspath || husky install",
+        "prepare": "npm run husky-install && npx fix-lockfile-integrity package-lock.json",
+        "husky-install": "git config --get core.hookspath || husky install",
         "prebuild": "npm run test",
         "build": "npm run build:no-test",
         "build:no-test": "npm run tsc && npm run package",
