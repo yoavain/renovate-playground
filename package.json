@@ -65,7 +65,7 @@
         "typescript": "5.3.3"
     },
     "dependencies": {
-        "dotenv": "16.3.1"
+        "dotenv": "16.4.5"
     },
     "lint-staged": {
         "*.(ts|js)": [
